@@ -2,9 +2,9 @@ name: Devmem2 Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "Dev" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "Dev" ]
 
 jobs:
   build:
