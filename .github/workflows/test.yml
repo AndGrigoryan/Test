@@ -7,18 +7,25 @@ on:
     branches: [ "main", "Dev" ]
 
 jobs:
-  build:
 
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v1
-
-    - name: install
-      run: sudo apt-get -y install g++
-
-    - name: compile
-      run: g++ main.cpp
-
-    - name: check executable
-      run: ./a.out
+    build:
+  
+      runs-on: ubuntu-latest
+  
+      steps:
+      - uses: actions/checkout@v1
+  
+      - name: install
+        run: sudo apt-get -y install g++
+  
+      - name: compile
+        run: g++ main.cpp
+  
+      - name: check executable
+        run: ./a.out
+    
+      - name: Archive code coverage results
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-without-markdown
+          path: a.out
